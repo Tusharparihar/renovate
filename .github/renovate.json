@@ -1,0 +1,7 @@
+{
+  "extends": ["config:base"],
+  "terraform": {
+    "enabled": true,
+    "fileMatch": ["^.*\\.tf$"]
+  }
+}
