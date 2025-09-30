@@ -10,7 +10,7 @@
     {
       "matchPackagePatterns": ["azurerm"],
       "groupName": "azurerm provider updates",
-      "rangeStrategy": "n-2"
+      "rangeStrategy": "n-2",
       "prHourlyLimit": 5
     }
   ]
