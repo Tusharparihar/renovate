@@ -5,6 +5,7 @@
     "fileMatch": ["^.*\\.tf$"],
     "ignoreUnstable": true
   },
+  "branchConcurrentLimit": 10
   "packageRules": [
     {
       "matchPackagePatterns": ["azurerm"],
