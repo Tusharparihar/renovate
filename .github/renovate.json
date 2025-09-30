@@ -6,6 +6,7 @@
     "ignoreUnstable": true
   },
   "branchConcurrentLimit": 10,
+  "recreateClosed": true,
   "packageRules": [
     {
       "matchPackagePatterns": ["^azurerm$"],
