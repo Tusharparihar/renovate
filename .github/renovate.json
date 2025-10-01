@@ -1,14 +1,24 @@
 {
-  "extends": ["config:base"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "enabledManagers": ["terraform"],
+  "recreateWhen": "always",
   "packageRules": [
     {
-      "description": "Terraform providers incremental updates",
-      "matchManagers": ["terraform"],
-      "matchDatasources": ["terraform-provider"],
-      "separateMinorPatch": true,
-      "separateMultipleMinor": true,
-      "separateMajorMinor": true,
-      "rangeStrategy": "pin"  
+      "description": "Group Minor/Patch updates for core and providers into a single PR",
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "All Minor/Patch Updates",
+      "automerge": true,
+      "automergeType": "branch-push"
+    },
+    {
+      "description": "Delay AzureRM Patch updates by 7 days to promote stability (workaround for N-1)",
+      "matchPackageNames": ["hashicorp/azurerm"],
+      "matchUpdateTypes": ["patch"],
+      "stabilityDays": 7, 
+      "groupName": "AzureRM Stable Patches (Delayed)"
     }
   ]
 }
